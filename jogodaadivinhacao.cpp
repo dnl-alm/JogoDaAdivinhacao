@@ -24,7 +24,7 @@ int main () {
             cout << "Escolha o nivel de dificuldade que voce quer jogar: " << endl;
             cout << "Digite '1' para modo Facil (15 tentativas)" << endl;
             cout << "Digite '2' para modo Medio (10 tentativas)" << endl;
-            cout << "Digite '3' para Dificil (5 tentativas)" << endl;
+            cout << "Digite '3' para modo Dificil (5 tentativas)" << endl;
             cout << "R: "; 
             cin >> nvl_dificuldade;
             bool leitura_falhou = cin.fail();
