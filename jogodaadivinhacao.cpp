@@ -22,7 +22,6 @@ int main () {
             cout << "3- Dificil (5 tentativas)" << endl;
             cout << "R: "; 
             cin >> nvl_dificuldade;
-
             if  (cin.fail()) {
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -103,6 +102,13 @@ int main () {
         cout << "Digite 's' para sim" << endl;
         cout << "Digite 'n' para nao" << endl;
         cin >> jogar_novamente;
+        if  (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Digite uma opcao valida" << endl;
+                cout << endl;
+                continue;
+            }
     }
      cout << "FIM DE JOGO!" << endl;
 }
