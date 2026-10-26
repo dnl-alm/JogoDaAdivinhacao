@@ -1,13 +1,13 @@
 # 🎯 Jogo da Adivinhação
 
-Jogo de terminal em C++ onde o jogador tenta adivinhar um número secreto entre 0 e 99. Quanto mais perto o chute estiver do número secreto, mais pontos o jogador mantém.
+Jogo de terminal em C++ onde o jogador tenta adivinhar um número secreto entre 0 e 99. Quanto menos tentativas o jogador usar para acertar, mais pontos ele ganha.
 
 ## 📋 Funcionalidades
 
 - Três níveis de dificuldade, com número de tentativas diferente em cada um
 - Número secreto gerado aleatoriamente a cada partida
 - Dicas após cada chute (maior ou menor que o número secreto)
-- Sistema de pontuação baseado na distância entre o chute e o número secreto
+- Sistema de pontuação baseado no número de tentativas usadas
 - Validação de entrada: letras ou símbolos no menu e no chute não quebram o jogo nem gastam tentativa
 - Opção de jogar novamente (aceita `s`/`S` e `n`/`N`) sem reiniciar o programa
 
@@ -28,13 +28,13 @@ Jogo de terminal em C++ onde o jogador tenta adivinhar um número secreto entre 
 
 ## 🏆 Pontuação
 
-Você começa com **1000 pontos**. A cada chute errado, perde pontos de acordo com a fórmula:
+A pontuação depende apenas de quantas tentativas você usou até acertar:
 
 ```
-pontos_perdidos = |chute - numero_secreto| / 2
+pontos = 1000 * (max_tentativas - tentativas_usadas + 1) / max_tentativas
 ```
 
-Ou seja, chutes mais distantes custam mais pontos. A pontuação final é exibida ao acertar o número.
+Acertar de primeira vale **1000 pontos**, e o valor cai de forma linear a cada tentativa gasta. A pontuação nunca fica negativa e não depende da sorte do número secreto. Ela é exibida ao acertar.
 
 ## 🛠️ Requisitos
 
@@ -70,7 +70,7 @@ O valor do seu chute e: 50
 Seu chute foi maior do que o numero secreto.
 ...
 Voce acertou o numero secreto com 4 tentativa(s).
-Sua pontuacao foi de 962.50 pontos.
+Sua pontuacao foi de 700.00 pontos.
 Deseja jogar novamente? (s/n): n
 FIM DE JOGO!
 ```

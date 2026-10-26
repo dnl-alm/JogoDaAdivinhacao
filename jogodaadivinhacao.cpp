@@ -18,6 +18,7 @@ int main () {
         cout << endl;
 
         int tentativas_restantes = 0;
+        int max_tentativas;
         int nvl_dificuldade;
 
         while(tentativas_restantes == 0) {
@@ -47,6 +48,8 @@ int main () {
                 cout << endl;
             }
         }
+
+        max_tentativas = tentativas_restantes;
 
         int tentativas = 0;
 
@@ -78,8 +81,7 @@ int main () {
             bool acertou = chute == NUMERO_SECRETO;
             bool maior = chute > NUMERO_SECRETO;
 
-            double pontos_perdidos = abs(chute - NUMERO_SECRETO) / 2.0;
-            pontos = pontos - pontos_perdidos;
+            pontos = 1000.00 * (max_tentativas - tentativas + 1) / max_tentativas;
 
             if (acertou) {
                 nao_acertou = false;
