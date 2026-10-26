@@ -2,12 +2,14 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <cctype>
 using namespace std;
 
 int main () {
+    srand(time(NULL));
+
     char jogar_novamente = 's';
     while (jogar_novamente == 's') {
-        srand(time(NULL));
         const int NUMERO_SECRETO = rand() % 100;
 
         cout << "*************************************" << endl;
@@ -25,9 +27,10 @@ int main () {
             cout << "3- Dificil (5 tentativas)" << endl;
             cout << "R: "; 
             cin >> nvl_dificuldade;
-            if  (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            bool leitura_falhou = cin.fail();
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            if (leitura_falhou) {
                 cout << "Digite uma opcao valida" << endl;
                 cout << endl;
                 continue;
@@ -60,9 +63,10 @@ int main () {
             
             cout << "Qual seu chute? " << endl;
             cin >> chute;
-            if  (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            bool leitura_falhou = cin.fail();
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            if (leitura_falhou) {
                 cout << "Digite uma opcao valida" << endl;
                 cout << endl;
                 tentativas--;
@@ -101,11 +105,19 @@ int main () {
             cout << "Voce perdeu! Tente novamente." << endl;
         }
 
-        cout << "Deseja jogar novamente? " << endl;
-        cout << "Digite 's' para sim" << endl;
-        cout << "Digite 'n' para nao" << endl;
-        cin >> jogar_novamente;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        do {
+            cout << "Deseja jogar novamente? (s/n): ";
+            cin >> jogar_novamente;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            jogar_novamente = tolower(jogar_novamente);
+
+            if  (jogar_novamente != 's' && jogar_novamente != 'n') {
+                cout << "Digite uma opcao valida." << endl;
+                cout << endl;
+            }
+
+        } while (jogar_novamente != 's' && jogar_novamente != 'n');
     }
      cout << "FIM DE JOGO!" << endl;
 }

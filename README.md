@@ -8,7 +8,8 @@ Jogo de terminal em C++ onde o jogador tenta adivinhar um número secreto entre 
 - Número secreto gerado aleatoriamente a cada partida
 - Dicas após cada chute (maior ou menor que o número secreto)
 - Sistema de pontuação baseado na distância entre o chute e o número secreto
-- Validação da escolha de dificuldade
+- Validação de entrada: letras ou símbolos no menu e no chute não quebram o jogo nem gastam tentativa
+- Opção de jogar novamente (aceita `s`/`S` e `n`/`N`) sem reiniciar o programa
 
 ## 🎮 Como jogar
 
@@ -23,6 +24,7 @@ Jogo de terminal em C++ onde o jogador tenta adivinhar um número secreto entre 
 2. Digite um chute a cada rodada.
 3. O jogo informa se o chute foi **maior** ou **menor** que o número secreto.
 4. A partida termina quando você acerta ou quando as tentativas acabam.
+5. Ao final, responda `s` para jogar novamente ou `n` para sair.
 
 ## 🏆 Pontuação
 
@@ -67,7 +69,8 @@ Qual seu chute?
 O valor do seu chute e: 50
 Seu chute foi maior do que o numero secreto.
 ...
-FIM DE JOGO!
 Voce acertou o numero secreto com 4 tentativa(s).
 Sua pontuacao foi de 962.50 pontos.
+Deseja jogar novamente? (s/n): n
+FIM DE JOGO!
 ```
