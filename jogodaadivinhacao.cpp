@@ -7,6 +7,9 @@ using namespace std;
 int main () {
     char jogar_novamente = 's';
     while (jogar_novamente == 's') {
+        srand(time(NULL));
+        const int NUMERO_SECRETO = rand() % 100;
+
         cout << "*************************************" << endl;
         cout << "* Bem-vindos ao jogo da adivinhacaoo *" << endl;
         cout << "*************************************" << endl;
@@ -41,8 +44,6 @@ int main () {
                 cout << endl;
             }
         }
-        srand(time(NULL));
-        const int NUMERO_SECRETO = rand() % 100;
 
         int tentativas = 0;
 
@@ -64,6 +65,8 @@ int main () {
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Digite uma opcao valida" << endl;
                 cout << endl;
+                tentativas--;
+                tentativas_restantes++;
                 continue;
             }
             cout << "O valor do seu chute e: " << chute << endl;
@@ -102,13 +105,7 @@ int main () {
         cout << "Digite 's' para sim" << endl;
         cout << "Digite 'n' para nao" << endl;
         cin >> jogar_novamente;
-        if  (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Digite uma opcao valida" << endl;
-                cout << endl;
-                continue;
-            }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
      cout << "FIM DE JOGO!" << endl;
 }
