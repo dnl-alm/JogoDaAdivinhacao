@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 using namespace std;
 
 int main () {
@@ -19,6 +20,14 @@ int main () {
         cout << "3- Dificil (5 tentativas)" << endl;
         cout << "R: "; 
         cin >> nvl_dificuldade;
+
+        if  (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Digite uma opcao valida" << endl;
+            cout << endl;
+            continue;
+        }
 
         if (nvl_dificuldade == 1) {
             tentativas_restantes = 15;
@@ -49,6 +58,13 @@ int main () {
         
         cout << "Qual seu chute? " << endl;
         cin >> chute;
+        if  (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Digite uma opcao valida" << endl;
+            cout << endl;
+            continue;
+        }
         cout << "O valor do seu chute e: " << chute << endl;
 
         bool acertou = chute == NUMERO_SECRETO;
