@@ -43,16 +43,11 @@ Ou seja, chutes mais distantes custam mais pontos. A pontuação final é exibid
 
 ```bash
 # Compilar
-g++ -o jogo_adivinhacao main.cpp
+g++ jogodaadivinhacao.cpp -o jogodaadivinhacao.exe
 
-# Executar (Linux/macOS)
-./jogo_adivinhacao
-
-# Executar (Windows)
-jogo_adivinhacao.exe
+# Executar
+./jogodaadivinhacao.exe
 ```
-
-> Substitua `main.cpp` pelo nome do seu arquivo-fonte.
 
 ## 💻 Exemplo de execução
 
